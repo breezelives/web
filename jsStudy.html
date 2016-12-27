@@ -5,7 +5,15 @@
 	<title>js study log</title>
 </head>
 <body>
+<select id="sel">
+	<option>-请选择-</option>
+	<option>1</option>
+	<option>2</option>
+	<option>3</option>
+</select>
 <script>
+//设置select默认值为空，不显示第一个option
+document.getElementById('sel').value = ""
 /*	//循环大数组
 function loopBigData(values, process){
 	var iterations = Math.floor(values.length / 8),
@@ -46,5 +54,6 @@ loopBigData([1,2,3,4,5,6,7,8,9,10], function(a){document.write(a + '<br>');});
 	
 	document.write(trim('   的啊啊啊啊啊啊啊啊 dfsdf sd fsd sd sd sd sdf 沙发水电费苟富贵        '));
 </script>
+
 </body>
 </html>
