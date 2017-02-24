@@ -43,3 +43,6 @@ console.log(toUnicode('重置'));
 console.time(1)
 // do something
 console.timeEnd(1);
+
+//返回指定范围的随机数(m~n之间)的公式
+document.write(Math.random()*(n-m)+m);
