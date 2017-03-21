@@ -46,3 +46,15 @@ console.timeEnd(1);
 
 //返回指定范围的随机数(m~n之间)的公式
 document.write(Math.random()*(n-m)+m);
+
+//打字机效果
+function writeStr(str, id, step){
+	var i = 0,
+		el = document.getElementById(id),
+		interval = setInterval(function () {
+		  if (i < str.length) el.appendChild(document.createTextNode(str[i++]))
+		  else clearInterval(interval)
+		}, step || 100)
+}
+
+writeStr(str, 'p')
