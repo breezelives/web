@@ -55,3 +55,9 @@ function writeStr(str, id, step){
 }
 
 writeStr(str, 'p')
+
+//判断字符串是否回文
+function palindrome(str) {
+  str = str.toLowerCase().replace(/[^a-z0-9]/g, '');
+  return str == str.split('').reverse().join('');
+}
