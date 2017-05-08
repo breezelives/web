@@ -64,7 +64,7 @@ function palindrome(str) {
 
 //每个单词首字母大写，其余小写
 function titleCase(str){
-  return str.toLowerCase().split(' ').map(function(item){
+  return str.toLowerCase().trim().split(' ').map(function(item){
     return item[0].toUpperCase() + item.slice(1);
   }).join(' ');
 }
