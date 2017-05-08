@@ -61,3 +61,10 @@ function palindrome(str) {
   str = str.toLowerCase().replace(/[^a-z0-9]/g, '');
   return str == str.split('').reverse().join('');
 }
+
+//每个单词首字母大写，其余小写
+function titleCase(str){
+  return str.toLowerCase().split(' ').map(function(item){
+    return item[0].toUpperCase() + item.slice(1);
+  })
+}
