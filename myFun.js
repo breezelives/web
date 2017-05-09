@@ -74,9 +74,9 @@ function titleCase(str){
 }
 
 function truncate(str, num){
-	if(str.length > num ){
-        if(num > 3) num -= 3
-        return str.slice(0, num)+'...'  
+	if(num > 0 && str.length > num ){
+        	if(num > 3) num -= 3
+        	return str.slice(0, num)+'...'  
 	}
 	return str
 }
