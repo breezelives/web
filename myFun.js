@@ -80,3 +80,14 @@ function truncate(str, num){
 	}
 	return str
 }
+
+function chunk(arr, size){
+	if(Array.isArray(arr) && size > 0){
+		var res = [], len = Math.ceil(arr.length / size), offset;
+		for(var i = 0; i < len; i++){
+			offset = i * size;
+			res.push(arr.slice(offset, offset + size))
+        }
+		return res
+	}
+}
