@@ -11,8 +11,7 @@ function where(collection, source){
 }
 
 function myReplace(str, before, after){
-	var firstLetter = before.charAt(0)
-	if(firstLetter >= 'A' && firstLetter <= 'Z' ) {
+	if(str[0] >= 'A' && str[0] <= 'Z' ) {
 		after = after[0].toUpperCase() + after.substr(1)
 	}
 	return str.replace(before, after)
