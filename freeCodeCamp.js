@@ -1,3 +1,12 @@
+//计算阶乘
+function factorialize(num) {
+  var sum = 1;
+  while(num>0){
+	sum *= num--;
+  }
+  return sum;
+}
+
 function where(collection, source){
 	var arr = []
 	collection.map(function(item){
