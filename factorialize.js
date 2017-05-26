@@ -5,4 +5,12 @@ function factorialize(num) {
   return sum;
 }
 
+function factorialize(num) {
+  var sum = 1;
+  while(num>0){
+	  sum *= num--;
+  }
+  return sum;
+}
+
 factorialize(5);
