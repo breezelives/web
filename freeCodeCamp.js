@@ -16,3 +16,17 @@ function myReplace(str, before, after){
 	}
 	return str.replace(before, after)
 }
+
+function pair(str){
+	var arr = [],
+		DNA = {
+		A: 'T',
+		T: 'A',
+		C: 'G',
+		G: 'C'
+	}
+	str.split('').map(function(item, i){
+		arr.push([item, DNA[item]])
+	})
+	return arr
+}
