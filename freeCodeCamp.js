@@ -20,3 +20,8 @@ function fearNotLetter(str){
 				}
 			}
 		}
+
+
+function boo(bool){
+			return bool === true || bool === false
+		}
