@@ -25,3 +25,16 @@ function fearNotLetter(str){
 function boo(bool){
 			return bool === true || bool === false
 		}
+
+
+function unite(){
+			var arr = []
+			for(var i = 0; i<arguments.length; i++){
+				arguments[i].map(function(item){
+					if(arr.indexOf(item) === -1){
+						arr.push(item)
+					}
+				})
+			}
+			return arr
+		}
