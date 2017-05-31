@@ -10,3 +10,13 @@ function translate(str){
 			}
 			return str + 'ay';
 		}
+
+
+function fearNotLetter(str){
+			var i = str.length - 1;
+			while(i >= 0){
+				if(str.charCodeAt(i--) != str.charCodeAt(i) + 1){
+					return String.fromCharCode(str.charCodeAt(i) + 1)
+				}
+			}
+		}
