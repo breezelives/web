@@ -1,0 +1,132 @@
+html,
+body {
+    height: 100%;
+}
+
+.fixed {
+    position: fixed;
+}
+.absolute {
+    position: absolute;
+}
+.relative {
+    position: relative;
+}
+.position-center {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10001;
+}
+.position-full {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.w-auto {
+    width: auto !important;
+}
+.h-auto {
+    height: auto !important;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+.overflow-auto,
+.scroll {
+    overflow: auto;
+}
+.scroll-x {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+.scroll-y {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.bg-white {
+    background-color: #fff;
+}
+.bg-transparent {
+    background-color: transparent !important;
+}
+.bg-translucent {
+    background-color: rgba(255,255,255,.5);
+}
+
+.box-shadow {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.18);
+}
+.box-shadow-top {
+    box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.18);
+}
+.box-shadow-bottom {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.18);
+}
+.box-shadow-left {
+    box-shadow: -5px 0 10px rgba(0, 0, 0, 0.18);
+}
+.box-shadow-right {
+    box-shadow: 5px 0 10px rgba(0, 0, 0, 0.18);
+}
+
+.border-gray {
+    border: 1px solid #ededed;
+}
+.border-top-gray {
+    border-top: 1px solid #ededed;
+}
+.border-bottom-gray {
+    border-bottom: 1px solid #ededed;
+}
+.border-left-gray {
+    border-left: 1px solid #ededed;
+}
+.border-right-gray {
+    border-right: 1px solid #ededed;
+}
+
+.table-fixed {
+    table-layout: fixed;
+}
+
+.btn-rounded {
+    border-radius: 2em;
+}
+
+.select-none {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+.cursor-default {
+    cursor: default;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    display: inline-block;
+    position: relative;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar:horizontal {
+    height: 10px;
+}
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.1);
+}
