@@ -1,3 +1,23 @@
+/* bootstrap4 custom style start */
+
+.col-form-label {
+    padding-top: calc(0.5rem + 1px);
+    padding-bottom: calc(0.5rem + 1px);
+    line-height: 1.25;
+}
+
+.col-form-label-lg {
+    padding-top: calc(0.75rem + 1px);
+    padding-bottom: calc(0.75rem + 1px);
+}
+
+.col-form-label-sm {
+    padding-top: calc(0.25rem + 1px);
+    padding-bottom: calc(0.25rem + 1px);
+}
+
+/* bootstrap4 custom style end */
+
 html,
 body {
     height: 100%;
@@ -49,7 +69,7 @@ body {
 }
 
 .bg-white {
-    background-color: #fff;
+    background-color: #fff !important;
 }
 .bg-transparent {
     background-color: transparent !important;
@@ -94,8 +114,8 @@ body {
     table-layout: fixed;
 }
 
-.btn-rounded {
-    border-radius: 2em;
+.btn-pill {
+    border-radius: 10rem;
 }
 
 .select-none {
