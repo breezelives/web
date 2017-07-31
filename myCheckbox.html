@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>my checkbox</title>
+	<style type="text/css">
+	html {
+		font-size: 12px;
+	}
+		.custom-checkbox {
+			display: inline-block;
+			margin-bottom: .5rem;
+			margin-right: 1rem;
+			cursor: pointer;
+		}
+		.custom-checkbox input {
+			position: absolute;
+			z-index: -1;
+			opacity: 0;
+		}
+		.custom-checkbox input ~ .custom-label:before {
+			content: '';
+			display: inline-block;
+			margin-right: .5rem;
+			width: 1rem;
+			height: 1rem;
+			border: 1px solid #008dda;
+			border-radius: .25rem;
+			vertical-align: text-bottom;
+		}
+		.custom-checkbox input:checked ~ .custom-label:before {
+			background: #008dda url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E");
+		}
+	</style>
+</head>
+<body>
+<form>
+	<div>
+		<label class="custom-checkbox">
+			<input type="checkbox" name="ck" value="1">
+			<span class="custom-label">custom checkbox</span>
+		</label>
+		<label class="custom-checkbox">
+			<input type="checkbox" name="ck" value="1">
+			<span class="custom-label"></span>
+		</label>
+	</div>
+	<div>
+		<label class="custom-checkbox">
+			<input type="checkbox" name="ck" value="1">
+			<span class="custom-label"></span>
+		</label>
+		<label class="custom-checkbox">
+			<input type="checkbox" name="ck" value="1">
+			<span class="custom-label">custom checkbox</span>
+		</label>
+	</div>
+</form>
+</body>
+</html>
