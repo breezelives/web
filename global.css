@@ -5,23 +5,78 @@
     padding-bottom: calc(0.5rem + 1px);
     line-height: 1.25;
 }
-
 .col-form-label-lg {
     padding-top: calc(0.75rem + 1px);
     padding-bottom: calc(0.75rem + 1px);
 }
-
 .col-form-label-sm {
     padding-top: calc(0.25rem + 1px);
     padding-bottom: calc(0.25rem + 1px);
 }
 
+
+.custom-control {
+    padding-left: 1rem;
+    vertical-align: middle;
+}
+.custom-control-indicator {
+    background-color: #fff;
+    background-size: 80%;
+    border: 1px solid #0275d8;
+    transition: "background-color" .5s;
+}
+.custom-radio .custom-control-input:checked ~ .custom-control-indicator {
+    background-image: none;
+    background-color: #0275d8;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 1px #0275d8;
+}
+.custom-control-input:focus ~ .custom-control-indicator {
+    box-shadow: 0 0 2px 2px #0275d8 !important;
+}
+.custom-control-description {
+    margin-left: .5rem;
+}
+.input-group-addon .custom-control {
+    margin: 0;
+    min-height: 1rem;
+}
+.input-group-addon .custom-control-indicator {
+    top: 0;
+}
+
+
+.custom-file {
+    height: calc(2.25rem + 2px);
+}
+.custom-file-input {
+    height: 100%;
+}
+.custom-file-control {
+    height: 100%;
+    line-height: 1.25;
+}
+.custom-file-control::before {
+    height: auto;
+    line-height: 1.25;
+}
+.custom-file-control:lang(cn)::after {
+  content: "选择文件...";
+}
+.custom-file-control:lang(cn)::before {
+  content: "浏览";
+}
+
 /* bootstrap4 custom style end */
 
+/******************* global css start ************************/
+
+/* for spa */
 html,
 body {
     height: 100%;
 }
+
 
 .fixed {
     position: fixed;
@@ -45,12 +100,14 @@ body {
     left: 0;
 }
 
+
 .w-auto {
     width: auto !important;
 }
 .h-auto {
     height: auto !important;
 }
+
 
 .overflow-hidden {
     overflow: hidden;
@@ -68,6 +125,7 @@ body {
     overflow-y: auto;
 }
 
+
 .bg-white {
     background-color: #fff !important;
 }
@@ -77,6 +135,7 @@ body {
 .bg-translucent {
     background-color: rgba(255,255,255,.5);
 }
+
 
 .box-shadow {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.18);
@@ -94,6 +153,7 @@ body {
     box-shadow: 5px 0 10px rgba(0, 0, 0, 0.18);
 }
 
+
 .border-gray {
     border: 1px solid #ededed;
 }
@@ -110,13 +170,24 @@ body {
     border-right: 1px solid #ededed;
 }
 
+
 .table-fixed {
     table-layout: fixed;
 }
 
+
 .btn-pill {
     border-radius: 10rem;
 }
+.btn-gradient {
+    background-image: linear-gradient(to right, #f90, #f40);
+    border-color: transparent;
+    color: #fff;
+}
+.btn-gradient:hover {
+    box-shadow: 0px 5px 10px 0px #f50;
+}
+
 
 .select-none {
     -webkit-user-select: none;
@@ -125,6 +196,7 @@ body {
     user-select: none;
 }
 
+
 .cursor-pointer {
     cursor: pointer;
 }
@@ -132,10 +204,12 @@ body {
     cursor: default;
 }
 
+
 [class^="icon-"], [class*=" icon-"] {
     display: inline-block;
     position: relative;
 }
+
 
 ::-webkit-scrollbar {
     width: 10px;
@@ -150,3 +224,5 @@ body {
     border-radius: 5px;
     background: rgba(0, 0, 0, 0.1);
 }
+
+/******************* global css end ************************/
