@@ -23,7 +23,7 @@
     background-color: #fff;
     background-size: 80%;
     border: 1px solid #0275d8;
-    transition: "background-color" .5s;
+    transition: background .3s;
 }
 .custom-radio .custom-control-input:checked ~ .custom-control-indicator {
     background-image: none;
@@ -32,11 +32,14 @@
     box-shadow: 0 0 0 1px #0275d8;
 }
 .custom-control-input:focus ~ .custom-control-indicator {
-    box-shadow: 0 0 2px 2px #0275d8 !important;
+    -webkit-box-shadow: 0 0 0 1px #fff, 0 0 0 3px #0275d8 !important;
+            box-shadow: 0 0 0 1px #fff, 0 0 0 3px #0275d8 !important;
 }
 .custom-control-description {
     margin-left: .5rem;
 }
+
+/* show custom control in input group*/
 .input-group-addon .custom-control {
     margin: 0;
     min-height: 1rem;
@@ -68,6 +71,7 @@
 }
 
 /* bootstrap4 custom style end */
+
 
 /******************* global css start ************************/
 
@@ -132,8 +136,11 @@ body {
 .bg-transparent {
     background-color: transparent !important;
 }
-.bg-translucent {
+.bg-translucent-white {
     background-color: rgba(255,255,255,.5);
+}
+.bg-translucent-black {
+    background-color: rgba(0,0,0,.5);
 }
 
 
@@ -151,6 +158,9 @@ body {
 }
 .box-shadow-right {
     box-shadow: 5px 0 10px rgba(0, 0, 0, 0.18);
+}
+.box-shadow-none {
+    box-shadow: none;
 }
 
 
