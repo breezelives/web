@@ -91,3 +91,11 @@ function chunk(arr, size){
 		return res
 	}
 }
+
+function getRandom(n){
+	var str = '';
+	for (var i = n; i > 0; i--) {
+		str += parseInt(Math.random()*36).toString(36);
+	}
+	return str;
+}
