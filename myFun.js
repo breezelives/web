@@ -92,7 +92,7 @@ function chunk(arr, size){
 	}
 }
 
-//生成随机字母和数字
+//生成n个随机字母和数字
 function getRandom(n){
 	var str = '';
 	for (var i = n; i > 0; i--) {
