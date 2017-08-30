@@ -85,3 +85,12 @@ function funName(a, b, c) {
     // statement;
     return ret;
 }
+
+//关于多行字符串拼接的情况,在行尾添加反斜杠(\)
+str = '<table>\
+    <tr>\
+        <td>1</td>\
+        <td>2</td>\
+        <td>3</td>\
+    </tr>\
+</table>';
