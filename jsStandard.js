@@ -79,7 +79,7 @@ switch (expression) {
 var fun = function (a, b, c) {
     // statement;
     return ret;
-}
+};
 
 function funName(a, b, c) {
     // statement;
