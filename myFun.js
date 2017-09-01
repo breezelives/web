@@ -22,6 +22,7 @@ function formatDate(date, str) {
   return str;
 }
 
+
 // 中文转Unicode
 String.prototype.toUnicode = function(str){
 	var _arr = [];
@@ -32,10 +33,12 @@ String.prototype.toUnicode = function(str){
 }
 console.log(toUnicode('重置'));
 
+
 //简单的获得代码执行的时间差
 console.time(1)
 // do something
 console.timeEnd(1);
+
 
 //打字机效果
 function writeStr(str, id, step){
@@ -46,14 +49,15 @@ function writeStr(str, id, step){
 	  else clearInterval(interval)
 	}, step || 100)
 }
-
 writeStr(str, 'p')
+
 
 //判断字符串是否回文
 function palindrome(str) {
   str = str.toLowerCase().replace(/[^a-z0-9]/g, '');
   return str == str.split('').reverse().join('');
 }
+
 
 //每个单词首字母大写，其余小写
 function titleCase(str){
@@ -66,6 +70,7 @@ function titleCase(str){
   }
 }
 
+
 function truncate(str, num){
 	if(num > 0 && str.length > num ){
         	if(num > 3) num -= 3
@@ -73,6 +78,7 @@ function truncate(str, num){
 	}
 	return str
 }
+
 
 function chunk(arr, size){
 	if(Array.isArray(arr) && size > 0){
@@ -85,6 +91,7 @@ function chunk(arr, size){
 	}
 }
 
+
 //生成n个随机字母和数字
 function getRandom(n){
 	var str = '';
@@ -94,6 +101,7 @@ function getRandom(n){
 	return str;
 }
 
+
 //生成随机颜色
 function getRandomColors(){
 	var str = '#';
@@ -102,6 +110,7 @@ function getRandomColors(){
 	}
 	return str;
 }
+
 
 //数组中对象按照指定属性排序
 var data = [
@@ -129,3 +138,13 @@ function compareFun(prop) {
 }
 data.sort(compareFun('name'));
 
+//计算阶乘
+function factorial(num) {
+  if (num <= 1) {
+    return 1;
+  } else {
+    //     return num * factorial(num - 1)
+    return num * arguments.callee(num - 1);
+  }
+}
+factorial( 3)
