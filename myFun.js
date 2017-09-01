@@ -148,3 +148,14 @@ function factorial(num) {
   }
 }
 factorial( 3)
+
+
+//callee和caller
+function outer() {
+  return inner();
+}
+function inner() {
+  console.log(arguments.callee.caller);
+  return arguments.callee.caller;
+}
+outer()
