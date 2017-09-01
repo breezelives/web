@@ -32,7 +32,7 @@ function formatDate(str, date) {
 // 中文转Unicode
 String.prototype.toUnicode = function(str){
 	var _arr = [];
-    for(var i=str.length; i--;){
+    for(var i = str.length; i--;){
         _arr.unshift('\\u' + str.charCodeAt(i).toString(16));
     }
     return _arr.join('');
@@ -76,7 +76,7 @@ function titleCase(str){
 function truncate(str, num){
 	if(num > 0 && str.length > num ){
         	if(num > 3) num -= 3
-        	return str.slice(0, num)+'...'  
+        	return str.slice(0, num) + '...'  
 	}
 	return str
 }
@@ -96,7 +96,7 @@ function chunk(arr, size){
 function getRandom(n){
 	var str = '';
 	for (var i = n; i > 0; i--) {
-		str += parseInt(Math.random()*36).toString(36);
+		str += parseInt(Math.random() * 36).toString(36);
 	}
 	return str;
 }
