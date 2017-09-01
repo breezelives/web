@@ -1,8 +1,8 @@
 /* 
  *格式化日期函数
  *支持输入毫秒数(时间戳)
- *new Date().format('2015/7/04 12:02:9', 'YYYY-mm-dd HH:ii:ss');
- *new Date().format(1463450259123, 'YYYY-mm-dd HH:ii:ss');
+ *new Date().format('2015/7/04 12:02:9', 'yyyy-mm-dd hh:ii:ss');
+ *new Date().format(1463450259123, 'yyyy-mm-dd hh:ii:ss');
 */
 Date.prototype.format = function (date, str) {
     return formatDate(date, str);
