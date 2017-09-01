@@ -12,13 +12,13 @@ function addZero(n) {
 }
 function formatDate(date, str) {
   var d = date ? new Date(date) : new Date();
-  var str = str || 'YYYY-mm-dd HH:ii:ss';
-  str = str.replace(/YYYY/ig, d.getFullYear());
-  str = str.replace(/mm/ig, addZero(d.getMonth() + 1));
-  str = str.replace(/dd/ig, addZero(d.getDate()));
-  str = str.replace(/HH/ig, addZero(d.getHours()));
-  str = str.replace(/ii/ig, addZero(d.getMinutes()));
-  str = str.replace(/ss/ig, addZero(d.getSeconds()));
+  var str = str || 'yyyy-mm-dd hh:ii:ss';
+  str = str.replace(/yyyy/gi, d.getFullYear());
+  str = str.replace(/mm/gi, addZero(d.getMonth() + 1));
+  str = str.replace(/dd/gi, addZero(d.getDate()));
+  str = str.replace(/hh/gi, addZero(d.getHours()));
+  str = str.replace(/ii/gi, addZero(d.getMinutes()));
+  str = str.replace(/ss/gi, addZero(d.getSeconds()));
   return str;
 }
 
