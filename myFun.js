@@ -1,24 +1,17 @@
 /* 
  *格式化日期函数
  *支持输入毫秒数(时间戳)
- *new Date().format('YYYY-mm-dd HH:ii:ss', '2015/7/04 12:02:9');
- *new Date().format('YYYY-mm-dd HH:ii:ss', '1463450259123');
+ *new Date().format('2015/7/04 12:02:9', 'YYYY-mm-dd HH:ii:ss');
+ *new Date().format(1463450259123, 'YYYY-mm-dd HH:ii:ss');
 */
-Date.prototype.format = function (str, date) {
-  return formatDate(str, date);
+Date.prototype.format = function (date, str) {
+    return formatDate(date, str);
 }
-function formatDate(str, date) {
-  var d = new Date();
-  function addZero(n) {
+function addZero(n) {
     return n < 10 ? '0' + n : n;
-  }
-  if (date) {
-    if (isNaN(date)) {
-      d = new Date(date);
-    } else {
-      d.setTime(date);
-    }
-  }
+}
+function formatDate(date, str) {
+  var d = date ? new Date(date) : new Date();
   var str = str || 'YYYY-mm-dd HH:ii:ss';
   str = str.replace(/YYYY/ig, d.getFullYear());
   str = str.replace(/mm/ig, addZero(d.getMonth() + 1));
