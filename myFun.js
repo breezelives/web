@@ -100,3 +100,12 @@ function getRandom(n){
 	}
 	return str;
 }
+
+//生成随机颜色
+function getRandomColors(){
+	var str = '#';
+	for (var i = 6; i > 0; i--) {
+		str += parseInt(Math.random() * 16).toString(16);
+	}
+	return str;
+}
