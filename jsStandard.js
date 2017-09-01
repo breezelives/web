@@ -76,6 +76,7 @@ switch (expression) {
 }
 
 //函数声明
+//函数表达式定义函数,后面加分号(;)
 var fun = function (a, b, c) {
     // statement;
     return ret;
