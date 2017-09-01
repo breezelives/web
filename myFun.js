@@ -102,3 +102,30 @@ function getRandomColors(){
 	}
 	return str;
 }
+
+//数组中对象按照指定属性排序
+var data = [
+  {
+    name: 'Zachary',
+    age: 28
+  },
+  {
+    name: 'Nicholas',
+    age: 29
+  }
+];
+function compareFun(prop) {
+  return function (obj1, obj2) {
+    var v1 = obj1[prop];
+    var v2 = obj2[prop];
+    if (v1 < v2) {
+      return - 1;
+    } else if (v1 > v2) {
+      return 1;
+    } else {
+      return 0;
+    }
+  }
+}
+data.sort(compareFun('name'));
+
