@@ -200,6 +200,7 @@ function rangeNum() {
 		start = arguments[0];
 		end = arguments[1];
 	}
-
-	return Math.floor(Math.random() * (end - start + 1) + start);
+	
+	var n = end - start + 1;
+	return Math.floor(Math.random() * n + start);
 }
