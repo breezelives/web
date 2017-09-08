@@ -176,10 +176,30 @@ function inner() {
 }
 outer()
 
+
 // 求数组最大(小)值
 function maxOfArr(arr) {
 	return Math.max.apply(Math, arr);
 }
 function minOfArr(arr) {
 	return Math.min.apply(Math, arr);
+}
+
+
+/* 取指定范围的随机整数数
+没有参数默认返回随机0/1
+一个参数n,返回0~n的整数,包括0和n
+两个参数a,b, 返回a~b之间的整数包括a和b
+*/ 
+function rangeNum() {
+	var start = 0, end = 1;
+
+	if(arguments.length === 1) {
+		end = arguments[0];
+	} else if(arguments.length === 2) {
+		start = arguments[0];
+		end = arguments[1];
+	}
+
+	return Math.floor(Math.random() * (end - start + 1) + start);
 }
