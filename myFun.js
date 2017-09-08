@@ -175,3 +175,11 @@ function inner() {
   return arguments.callee.caller;
 }
 outer()
+
+// 求数组最大(小)值
+function maxOfArr(arr) {
+	return Math.max.apply(Math, arr);
+}
+function minOfArr(arr) {
+	return Math.min.apply(Math, arr);
+}
