@@ -149,6 +149,22 @@ function factorial(num) {
 }
 factorial( 3)
 
+function htmlEscape(text) {
+	return text.replace(/[<>"&]/g, function(match, pos, originalText) {
+		switch(match) {
+			case '<':
+				return '&lt;';
+			case '>':
+				return '&gt;';
+			case '"':
+				return '&quot;';
+			case '&':
+				return '&amp;';
+		}
+	});
+}
+
+document.write(htmlEscape('<h1 class="bold">h1&text</h1>'));
 
 //callee和caller
 function outer() {
