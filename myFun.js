@@ -8,8 +8,11 @@ function addZero(n) {
  *new Date().format('2015/7/04 12:02:9', 'yyyy-mm-dd hh:ii:ss');
  *new Date().format(1463450259123, 'yyyy-mm-dd hh:ii:ss');
 */
-function formatDate(date, str) {
+function formatDate(str, date) {
   var d = date ? new Date(date) : new Date();
+  if (isNaN(d.getDate())) {
+    return 'Invalid Date';
+  }
   var str = str || 'yyyy-mm-dd hh:ii:ss';
   str = str.replace(/yyyy/gi, d.getFullYear());
   str = str.replace(/mm/gi, addZero(d.getMonth() + 1));
