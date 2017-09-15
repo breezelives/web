@@ -23,6 +23,24 @@ function formatDate(str, date) {
   return str;
 }
 
+/*
+ * 计算当前日期偏移 
+ * offset 表示日期偏移量 
+ * 'd-7' 过去7天 
+ * 'm+1' 下个月 
+ * 'y-2' 两年前
+ */
+function calcDate(offset, date) {
+	var y, m, d, today = date ? new Date(date) : new Date();
+	y = (y = offset.match(/y[+|-]\d+/)) ? parseInt(y[0].substring(1)) : 0;
+	m = (m = offset.match(/m[+|-]\d+/)) ? parseInt(m[0].substring(1)) : 0;
+	d = (d = offset.match(/d[+|-]\d+/)) ? parseInt(d[0].substring(1)) : 0;
+	today.setFullYear(today.getFullYear() + y);
+	today.setMonth(today.getMonth() + m);
+	today.setDate(today.getDate() + d);
+	return formatDate('YYYY-mm-dd', today.getTime());
+}
+
 // 中文转Unicode
 String.prototype.toUnicode = function(str){
 	var _arr = [];
