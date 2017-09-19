@@ -148,6 +148,7 @@ function compareFun(prop) {
 data.sort(compareFun('name'));
 
 //计算阶乘
+//方法一
 function factorial(num) {
   if (num <= 1) {
     return 1;
@@ -156,6 +157,11 @@ function factorial(num) {
     return num * arguments.callee(num - 1);
   }
 }
+//方法二,严格模式下可用
+var factorial = (function f(n){
+	if(n <= 1) return 1;
+	else return n * f(n - 1);
+});
 factorial( 3)
 
 function htmlEscape(text) {
