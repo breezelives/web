@@ -292,6 +292,20 @@ a {
   border-radius: 5px;
   background: rgba(0, 0, 0, 0.1);
 }
+
+
+input::-webkit-input-placeholder {
+    color: #f00;
+}
+
+input:-ms-input-placeholder {
+    color: #f00;
+}
+
+input::-moz-placeholder {
+    color: #f00;
+}
+
 .flex-1 {
     flex: 1;
 }
