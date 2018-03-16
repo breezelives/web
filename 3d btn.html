@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>3d btn</title>
+	<style type="text/css">
+		.text-center {
+			text-align: center;
+		}
+		.btn {
+			padding: 1rem;
+			background-color: #f90;
+			color: #fff;
+			border: none;
+			border-radius: 5px;
+			font-size: 20px;
+			cursor: pointer;
+			position: relative;
+			transition: all .1s linear;
+		}
+		.btn:hover {
+			color: #eee;
+			text-shadow: 0 0 3px #333;
+		}
+		.btn-3d {
+			box-shadow: 0 5px 0 #f80, 0 10px 10px #ccc;
+		}
+		.btn-3d:focus {
+			outline: none;
+		}
+		.btn-3d:active {
+			box-shadow: 0 0 0 #f80, 0 0 0 #f80, 0 5px 10px #ccc;
+			top: 3px;
+		}
+	</style>
+</head>
+<body>
+
+<div class="text-center">
+	<button class="btn btn-3d">button</button>
+</div>
+</body>
+</html>
