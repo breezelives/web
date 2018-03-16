@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>animated.css example</title>
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
+	<style type="text/css">
+		body {
+			overflow: hidden;
+		}
+		#container {
+			width: 500px;
+			margin: 20px auto;
+			height: 300px;
+			background-color: #f90;
+			box-shadow: 0 0 10px #f00;
+			text-align: center;
+			font-size: 40px;
+			color: #fff;
+			line-height: 300px;
+		}
+		button {
+			padding: .5em 1em;
+			background-color: #999;
+			color: #fff;
+			border: none;
+			border-radius: 3px;
+			cursor: pointer;
+			margin: .5em;
+		}
+		button:focus {
+			outline: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		animated.css example
+	</div>
+	<button>bounce</button>
+	<button>flash</button>
+	<button>pulse</button>
+	<button>rubberBand</button>
+	<button>shake</button>
+	<button>headShake</button>
+	<button>swing</button>
+	<button>tada</button>
+	<button>wobble</button>
+	<button>jello</button>
+	<button>bounceIn</button>
+	<button>bounceInDown</button>
+	<button>bounceInLeft</button>
+	<button>bounceInRight</button>
+	<button>bounceInUp</button>
+	<button>bounceOut</button>
+	<button>bounceOutDown</button>
+	<button>bounceOutLeft</button>
+	<button>bounceOutRight</button>
+	<button>bounceOutUp</button>
+	<button>fadeIn</button>
+	<button>fadeInDown</button>
+	<button>fadeInDownBig</button>
+	<button>fadeInLeft</button>
+	<button>fadeInLeftBig</button>
+	<button>fadeInRight</button>
+	<button>fadeInRightBig</button>
+	<button>fadeInUp</button>
+	<button>fadeInUpBig</button>
+	<button>fadeOut</button>
+	<button>fadeOutDown</button>
+	<button>fadeOutDownBig</button>
+	<button>fadeOutLeft</button>
+	<button>fadeOutLeftBig</button>
+	<button>fadeOutRight</button>
+	<button>fadeOutRightBig</button>
+	<button>fadeOutUp</button>
+	<button>fadeOutUpBig</button>
+	<button>flipInX</button>
+	<button>flipInY</button>
+	<button>flipOutX</button>
+	<button>flipOutY</button>
+	<button>lightSpeedIn</button>
+	<button>lightSpeedOut</button>
+	<button>rotateIn</button>
+	<button>rotateInDownLeft</button>
+	<button>rotateInDownRight</button>
+	<button>rotateInUpLeft</button>
+	<button>rotateInUpRight</button>
+	<button>rotateOut</button>
+	<button>rotateOutDownLeft</button>
+	<button>rotateOutDownRight</button>
+	<button>rotateOutUpLeft</button>
+	<button>rotateOutUpRight</button>
+	<button>hinge</button>
+	<button>rollIn</button>
+	<button>rollOut</button>
+	<button>zoomIn</button>
+	<button>zoomInDown</button>
+	<button>zoomInLeft</button>
+	<button>zoomInRight</button>
+	<button>zoomInUp</button>
+	<button>zoomOut</button>
+	<button>zoomOutDown</button>
+	<button>zoomOutLeft</button>
+	<button>zoomOutRight</button>
+	<button>zoomOutUp</button>
+	<button>slideInDown</button>
+	<button>slideInLeft</button>
+	<button>slideInRight</button>
+	<button>slideInUp</button>
+	<button>slideOutDown</button>
+	<button>slideOutLeft</button>
+	<button>slideOutRight</button>
+	<button>slideOutUp</button>
+	<script type="text/javascript">
+		var container = document.getElementById('container');
+		var btns = document.getElementsByTagName('button');
+		for (var i = 0; i < btns.length; i++) {
+			btns[i].onclick = function(){
+				container.className = 'animated ' + this.innerText
+				setTimeout(function(){
+					container.className = ''
+				}, 1000);
+			}
+		}
+	</script>
+</body>
+</html>
