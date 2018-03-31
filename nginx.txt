@@ -1,2 +1,0 @@
-//重启命令
-nginx.exe -s reload
