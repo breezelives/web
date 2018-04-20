@@ -159,7 +159,14 @@ var factorial = (function f(n){
 	if(n <= 1) return 1;
 	else return n * f(n - 1);
 });
-factorial( 3)
+factorial(3)
+//尾递归，只保留一个调用记录，复杂度 O(1)
+function factorial(n, total) {
+  if (n === 1) return total;
+  return factorial(n - 1, n * total);
+}
+
+factorial(5, 1)
 
 function htmlEscape(text) {
 	return text.replace(/[<>"&]/g, function(match, pos, originalText) {
