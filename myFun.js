@@ -150,12 +150,9 @@ data.sort(compareFun('name'));
 //计算阶乘
 //方法一
 function factorial(num) {
-  if (num <= 1) {
-    return 1;
-  } else {
-    //     return num * factorial(num - 1)
-    return num * arguments.callee(num - 1);
-  }
+  if (num <= 1) return 1;
+  //  return num * factorial(num - 1)
+  return num * arguments.callee(num - 1);
 }
 //方法二,严格模式下可用
 var factorial = (function f(n){
