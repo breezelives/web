@@ -1,79 +1,81 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="utf-8"> 
-<title>drag</title>
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-<style type="text/css">
-    .modal.show .modal-dialog {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        margin: 0;
-        min-width: 300px;
-    }
-    .modal-header {
-        cursor: move;
-    }
-</style>
+    <meta charset="utf-8">
+    <title>drag</title>
+    <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <style type="text/css">
+        .modal.show .modal-dialog {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            margin: 0;
+            min-width: 300px;
+        }
+
+        .modal-header {
+            cursor: move;
+        }
+    </style>
 
 </head>
+
 <body>
 
-<div class="modal fade" id="modal" ondragover="event.preventDefault()">
-    <div class="modal-dialog" draggable="true">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">modal title</h5>
-                <button type="button" class="close fa-2x" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="modal-body">
-                modal body
+    <div class="modal fade" id="modal" ondragover="event.preventDefault()">
+        <div class="modal-dialog" draggable="true">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">modal title</h5>
+                    <button type="button" class="close fa-2x" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    modal body
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
-<script src="js/jquery.js"></script>
-<script src="js/popper.js"></script>
-<script src="js/bootstrap.js"></script>
-<script>
-    
-$('#modal').modal()
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/popper.js/dist/popper.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script>
+        $('#modal').modal()
 
-function moveModal(id) {
-    var dialog = $(id).find('.modal-dialog')[0];
-    var layerX = 0;
-    var layerY = 0;
-    
-    dialog.onmousedown = function(e){
-        layerX = e.layerX;
-        layerY = e.layerY;
-    }
+        function moveModal(id) {
+            var dialog = $(id).find('.modal-dialog')[0];
+            var layerX = 0;
+            var layerY = 0;
 
-    $(id)[0].ondrop = function (ev) {
-        // console.log(ev)
-        ev.preventDefault();
-        var modal = $(id)[0];
-        var modalWidth = modal.offsetWidth;
-        var modalHeight = modal.offsetHeight;
-        var dialogStyle = dialog.style;
-        var left = ev.x - layerX;
-        var top = ev.y - layerY;
+            dialog.onmousedown = function (e) {
+                layerX = e.layerX;
+                layerY = e.layerY;
+            }
 
-        if(left < dialog.offsetWidth/2) left =  dialog.offsetWidth/2;
-        if(left > modalWidth - dialog.offsetWidth/2) left = modalWidth - dialog.offsetWidth/2;
-        if(top < dialog.offsetHeight/2) top =  dialog.offsetHeight/2;
-        if(top > modalHeight - dialog.offsetHeight/2) top = modalHeight - dialog.offsetHeight/2;
-        dialogStyle.left = left + 'px';
-        dialogStyle.top = top + 'px';
-    }
-}
+            $(id)[0].ondrop = function (ev) {
+                // console.log(ev)
+                ev.preventDefault();
+                var modal = $(id)[0];
+                var modalWidth = modal.offsetWidth;
+                var modalHeight = modal.offsetHeight;
+                var dialogStyle = dialog.style;
+                var left = ev.x - layerX;
+                var top = ev.y - layerY;
 
-moveModal('#modal')
+                if (left < dialog.offsetWidth / 2) left = dialog.offsetWidth / 2;
+                if (left > modalWidth - dialog.offsetWidth / 2) left = modalWidth - dialog.offsetWidth / 2;
+                if (top < dialog.offsetHeight / 2) top = dialog.offsetHeight / 2;
+                if (top > modalHeight - dialog.offsetHeight / 2) top = modalHeight - dialog.offsetHeight / 2;
+                dialogStyle.left = left + 'px';
+                dialogStyle.top = top + 'px';
+            }
+        }
 
-</script>
+        moveModal('#modal')
+    </script>
 </body>
+
 </html>
