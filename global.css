@@ -3,14 +3,6 @@ body {
   height: 100%;
 }
 
-a {
-  cursor: pointer;
-}
-
-.h-100vh {
-  height: 100vh;
-}
-
 .position-center {
   left: 50%;
   top: 50%;
@@ -29,29 +21,12 @@ a {
   opacity: 0;
 }
 
-.scroll-x {
-  overflow-x: auto;
-  overflow-y: hidden;
+.bg-white-50 {
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
-.scroll-y {
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
-.bg-translucent-white {
-  background-color: rgba(255, 255, 255, .5);
-}
-
-.bg-translucent-black {
-  background-color: rgba(0, 0, 0, .5);
-}
-
-.h7 {
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-  font-size: .875rem;
-  line-height: 1.1;
+.bg-black-50 {
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .text-underline {
@@ -111,59 +86,4 @@ input:-ms-input-placeholder {
 
 input::-moz-placeholder {
   color: #f00;
-}
-
-.gutters-xs {
-  margin-right: -.25rem;
-  margin-left: -.25rem;
-}
-
-.gutters-xs>.col,
-.gutters-xs>[class*="col-"] {
-  padding-right: .25rem;
-  padding-left: .25rem;
-}
-
-.gutters-sm {
-  margin-right: -.5rem;
-  margin-left: -.5rem;
-}
-
-.gutters-sm>.col,
-.gutters-sm>[class*="col-"] {
-  padding-right: .5rem;
-  padding-left: .5rem;
-}
-
-.gutters-md {
-  margin-right: -1rem;
-  margin-left: -1rem;
-}
-
-.gutters-md>.col,
-.gutters-md>[cla5s*="col-"] {
-  padding-right: 1rem;
-  padding-left: 1rem;
-}
-
-.gutters-lg {
-  margin-right: -1.5rem;
-  margin-left: -1.5rem;
-}
-
-.gutters-lg>.col,
-.gutters-lg>[class*="col-"] {
-  padding-right: 1.5rem;
-  padding-left: 1.5rem;
-}
-
-.gutters-xl {
-  margin-right: -2rem;
-  margin-left: -2rem;
-}
-
-.gutters-xl>.col,
-.gutters-xl>[class*="col-"] {
-  padding-right: 2rem;
-  padding-left: 2rem;
 }
