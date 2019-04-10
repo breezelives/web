@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>popover arrow</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    .popover {
+      position: absolute;
+      left: 0;
+      top: 0;
+      margin-top: 0.5rem;
+      padding: 1rem;
+      border-radius: 0.25rem;
+      background-image: linear-gradient(#ff8686, #ff5454);
+    }
+
+    .popover-arrow::before,
+    .popover-arrow::after {
+      content: '';
+      position: absolute;
+      top: -0.5em;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 .5rem .5rem .5rem;
+      border-color: #fff;
+      transform: translateX(-50%);
+    }
+    .popover-arrow::before {
+      border-image: linear-gradient(#ff5252, #ff8686);
+    }
+    .popover-arrow::after {
+      border-bottom-color: transparent;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="popover popover-arrow">
+    popover text
+  </div>
+</body>
+
+</html>

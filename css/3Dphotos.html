@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>3Dphotos</title>
+  <style>
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      margin: 0;
+      background: url(design.jpg) center bottom/cover;
+    }
+
+    .wrap {
+      position: relative;
+      width: 400px;
+      height: 300px;
+      transform-style: preserve-3d;
+      animation: go-rotate 50s linear infinite;
+    }
+
+    .wrap:hover {
+      animation-play-state: paused
+    }
+
+    .heart {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      background-color: red;
+      transform: rotate(-45deg);
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background-color: red;
+    }
+
+    .heart::before {
+      left: 0;
+      top: -50%;
+    }
+
+    .heart::after {
+      bottom: 0;
+      right: -50%;
+    }
+
+    .wrap div {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-position: center;
+      background-size: cover;
+    }
+
+    .wrap div:nth-of-type(1) {
+      background-image: url(img/1.jpg);
+      transform: rotateY(0deg) translateZ(750px);
+    }
+
+    .wrap div:nth-of-type(2) {
+      background-image: url(img/2.jpg);
+      transform: rotateY(36deg) translateZ(750px);
+    }
+
+    .wrap div:nth-of-type(3) {
+      background-image: url(img/3.jpg);
+      transform: rotateY(72deg) translateZ(750px);
+    }
+
+    .wrap div:nth-of-type(4) {
+      background-image: url(img/4.png);
+      transform: rotateY(108deg) translateZ(750px);
+    }
+
+    .wrap div:nth-of-type(5) {
+      background-image: url(img/5.jpeg);
+      transform: rotateY(144deg) translateZ(750px);
+    }
+
+    .wrap div:nth-of-type(6) {
+      background-image: url(img/6.jpg);
+      transform: rotateY(180deg) translateZ(750px);
+    }
+
+    .wrap div:nth-of-type(7) {
+      background-image: url(img/7.jpg);
+      transform: rotateY(216deg) translateZ(750px);
+    }
+
+    .wrap div:nth-of-type(8) {
+      background-image: url(img/8.jpeg);
+      transform: rotateY(252deg) translateZ(750px);
+    }
+
+    .wrap div:nth-of-type(9) {
+      background-image: url(img/9.jpg);
+      transform: rotateY(288deg) translateZ(750px);
+    }
+
+    .wrap div:nth-of-type(10) {
+      background-image: url(img/10.jpg);
+      transform: rotateY(324deg) translateZ(750px);
+    }
+
+    @keyframes go-rotate {
+      0% {
+        transform: rotateX(0deg) rotateY(0deg);
+      }
+
+      25% {
+        transform: rotateX(20deg) rotateY(180deg);
+      }
+
+      50% {
+        transform: rotateX(0deg) rotateY(360deg);
+      }
+
+      75% {
+        transform: rotateX(-20deg) rotateY(540deg);
+      }
+
+      100% {
+        transform: rotateX(0deg) rotateY(720deg);
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <p class="heart"></p>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <audio autoplay src="music.mp3"></audio>
+</body>
+
+</html>

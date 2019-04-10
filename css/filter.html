@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>模糊背景</title>
+	<style type="text/css">
+	/* * {
+		margin: 0;
+		padding: 0;
+	} */
+	.bg {
+		background: url('http://www.unicap.br/vestibularsocial/wp-content/plugins/page-layout-builder/images/bg/geometricBGs43.jpg') no-repeat right;
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		left: 0;
+		top: 0;
+		overflow: hidden;
+	}
+	.filter-bg {
+		background: inherit;
+		width: 80%;
+		height: 100%;
+		margin-left: auto;
+		-webkit-filter: blur(5px);
+		filter: blur(5px);
+	}
+	.menu {
+		position: absolute;
+		left: 20%;
+		top: 50%;
+		margin-top: -50px;
+		margin-left: 50px;
+	}
+	.menu a {
+		float: left;
+		width: 100px;
+		height: 100px;
+		margin-right: 40px;
+		background-color: #f90;
+		transform: rotate(45deg);
+	}
+	.menu a span {
+		display: block;
+		background: inherit;
+		filter: blur(5px);
+	}
+	.content {
+		position: absolute;
+		height: 100%;
+		border-left: 1px solid #ccc;
+	}
+	</style>
+</head>
+<body>
+<div class="bg">
+	<div class="menu">
+		<a href=""><span></span></a>
+		<a href=""></a>
+		<a href=""></a>
+	</div>
+	<div class="filter-bg">
+		<div class="menu">
+			<a href=""><span></span></a>
+			<a href=""></a>
+			<a href=""></a>
+		</div>	
+	</div>
+	<h1 class="content">ghdfgdfgdfs</h1>
+</div>
+
+</body>
+</html>

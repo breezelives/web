@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>css</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --main-color: rgb(255, 255, 255);
+    }
+
+    body {
+      margin: 0;
+      transition: background-color 1s;
+      background-color: var(--main-color);
+    }
+
+    .container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .badge {
+      width: 200px;
+      height: 150px;
+      font-size: 40px;
+      line-height: 150px;
+      text-align: center;
+      animation: rotate 5s linear;
+      transition: background-color 1s;
+      background-color: var(--main-color);
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+      }
+
+      100% {
+        transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+      }
+    }
+
+    /* 选择前三个li */
+
+    /* li:nth-child(-n+3) {
+      background-color: rgba(137, 43, 226, 0.438);
+    } */
+
+    /* 第三个及以后的li */
+
+    /* li:nth-child(n+3) {
+      background-color: rgba(43, 226, 171, 0.397);
+    } */
+
+    /* 选择div的子元素是奇数位置的p */
+    div p:nth-child(2n+1) {
+      color: rgb(127, 190, 54);
+    }
+
+    /* 奇数段p, 只计算p元素的位置 */
+    /* p:nth-of-type(2n+1) {
+      color: red;
+    } */
+    .no {
+      width: 100px;
+      height: 100px;
+      border: 10px solid red;
+      border-radius: 50%;
+      background: linear-gradient(-45deg, transparent 46%, red 46%, red 54%, transparent 54%);
+    }
+
+    .box {
+      width: 200px;
+      height: 100px;
+      background-color: #fff;
+      border: 30px solid #fff;
+      border-image: url(border.png) 30/30px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <div class="container">
+    <div class="badge">transform</div>
+  </div> -->
+
+  <!-- <ol>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ol> -->
+
+  <!--  <div>
+    <div>这段不参与计数。</div>
+    <p>这是第一段。</p>
+    <p>这是第二段。</p>
+    <div>这段不参与计数。</div>
+    <p>这是第三段。</p>
+    <p>这是第四段。</p>
+  </div> -->
+
+  <div class="no"></div>
+
+  <div class="box">border image</div>
+  <script>
+    Math.constructor.prototype.getRandom = function (end, start = 0) {
+      return parseInt(Math.random() * (end - start) + start);
+    }
+
+    function getRandomColor(alpha = 0) {
+      if (alpha) {
+        return 'rgba(' + Math.getRandom(255) + ',' + Math.getRandom(255) + ',' + Math.getRandom(255) + ',' + Math.random()
+          .toFixed(2) + ')'
+      }
+      return 'rgb(' + Math.getRandom(255) + ',' + Math.getRandom(255) + ',' + Math.getRandom(255) + ')'
+    }
+    setInterval(() => {
+      let color = getRandomColor()
+      document.documentElement.style.setProperty('--main-color', color);
+    }, 2000);
+
+    // if (CSS && CSS.paintWorklet) {
+    //   CSS.paintWorklet.addModule('sky.js')
+    // }
+  </script>
+</body>
+
+</html>

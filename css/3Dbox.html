@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>3D box</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    html {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .box {
+      width: 200px;
+      height: 200px;
+      position: relative;
+      transform-style: preserve-3d;
+      /* perspective: 900px; */
+      animation: rotate3d 8s infinite linear;
+    }
+
+    @keyframes rotate3d {
+      from {
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+      }
+
+      to {
+        transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+      }
+    }
+
+    .box>div {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border: 1px solid rgb(12, 44, 104);
+      background: rgba(23, 167, 233, 0.308);
+      font-size: 150px;
+      line-height: 200px;
+      text-align: center;
+      color: rgb(219, 89, 89);
+    }
+
+    .box div:nth-child(1) {
+      transform: translateZ(100px);
+    }
+
+    .box div:nth-child(2) {
+      transform: translateZ(-100px);
+    }
+
+    .box div:nth-child(3) {
+      transform: rotateX(90deg) translateZ(-100px);
+    }
+
+    .box div:nth-child(4) {
+      transform: rotateX(90deg) translateZ(100px);
+    }
+
+    .box div:nth-child(5) {
+      transform: rotateY(90deg) translateZ(-100px);
+    }
+
+    .box div:nth-child(6) {
+      transform: rotateY(90deg) translateZ(100px);
+    }
+
+    .box div.subBox {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      left: 50px;
+      top: 50px;
+    }
+
+    .box div.subBox div {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border: 1px solid rgb(104, 4, 4);
+      background: rgba(236, 23, 172, 0.308);
+      font-size: 80px;
+      line-height: 100px;
+      text-align: center;
+      color: rgb(20, 114, 83);
+    }
+
+    .subBox div:nth-child(1) {
+      transform: translateZ(50px);
+    }
+
+    .subBox div:nth-child(2) {
+      transform: translateZ(-50px);
+    }
+
+    .subBox div:nth-child(3) {
+      transform: rotateX(90deg) translateZ(-50px);
+    }
+
+    .subBox div:nth-child(4) {
+      transform: rotateX(90deg) translateZ(50px);
+    }
+
+    .subBox div:nth-child(5) {
+      transform: rotateY(90deg) translateZ(-50px);
+    }
+
+    .subBox div:nth-child(6) {
+      transform: rotateY(90deg) translateZ(50px);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div class="subBox">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+    </div>
+  </div>
+</body>
+
+</html>

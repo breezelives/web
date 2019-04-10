@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>css loading</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      background-color: #ccc;
+    }
+
+    .items-center {
+      float: left;
+      display: flex;
+      width: 200px;
+      height: 200px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg)
+      }
+    }
+
+    .loading {
+      width: 3rem;
+      height: 3rem;
+      border: 0.2rem solid rgb(255, 255, 255);
+      border-radius: 50%;
+      border-top-color: transparent;
+      animation: rotate 1s linear infinite;
+    }
+
+    .loader1,
+    .loader1::before,
+    .loader1::after {
+      width: 0.5rem;
+      height: 2rem;
+      background-color: #fff;
+      animation: load1 1s ease-in-out infinite;
+    }
+
+    .loader1 {
+      position: relative;
+      animation-delay: .2s;
+    }
+
+    .loader1::before,
+    .loader1::after {
+      content: '';
+      position: absolute;
+      top: 0;
+    }
+
+    .loader1::before {
+      left: -1rem;
+      animation-delay: .1s;
+    }
+
+    .loader1::after {
+      left: 1rem;
+      animation-delay: .3s;
+    }
+
+    @keyframes load1 {
+      0%,
+      80%,
+      100% {
+        height: 3rem;
+        box-shadow: 0 0 #fff;
+      }
+      40% {
+        height: 4rem;
+        box-shadow: 0 -1rem #fff;
+      }
+    }
+
+    .loader2 {
+      text-indent: -99999rem;
+      position: relative;
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      box-shadow: inset 0 0 0 0.2rem #FFF;
+    }
+
+    .loader2:before,
+    .loader2:after {
+      position: absolute;
+      content: '';
+    }
+
+    .loader2:before {
+      width: 2.2rem;
+      height: 4.2rem;
+      background: #ccc;
+      border-radius: 4.2rem 0 0 4.2rem;
+      top: -0.1rem;
+      left: -0.1rem;
+      transform-origin: 2.2rem 2.1rem;
+      animation: rotate 2s infinite ease 1.5s;
+    }
+
+    .loader2:after {
+      width: 2.2rem;
+      height: 4.2rem;
+      background: #ccc;
+      border-radius: 0 4.2rem 4.2rem 0;
+      top: -0.1rem;
+      left: 2.1rem;
+      transform-origin: 0 2.1rem;
+      animation: rotate 2s infinite ease;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="items-center">
+    <div class="loading"></div>
+  </div>
+  <div class="items-center">
+    <div class="loader1"></div>
+  </div>
+  <div class="items-center">
+    <div class="loader2"></div>
+  </div>
+
+</body>
+
+</html>

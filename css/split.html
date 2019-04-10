@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>split demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .btn {
+      padding: 1rem 3rem;
+      border: 0.2rem solid #fff;
+      border-radius: 0.25rem;
+      color: #fff;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      text-shadow: 0 0 5px rgb(138, 138, 138);
+    }
+
+    .btn:hover {
+      /* background-color: rgba(221, 100, 63, 0.329); */
+      border-color: rgb(185, 43, 43);
+      color: rgb(185, 43, 43);
+    }
+
+    .row {
+      height: 100%;
+      display: flex;
+    }
+
+    .row .col {
+      position: relative;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: auto 100%;
+      transition: all .5s linear;
+      /* filter: blur(2px); */
+      filter: grayscale(80%);
+    }
+
+    .row .col:first-child {
+      background-image: url(./design.jpg);
+    }
+
+    .row .col:last-child {
+      background-image: url(./code.png);
+    }
+
+    .row .col h1 {
+      color: #fff;
+      font-weight: bold;
+      font-size: 4rem;
+      white-space: nowrap;
+      text-shadow: 3px 2px 11px rgb(58, 58, 58);
+    }
+
+    .row .col:hover {
+      flex-grow: 2;
+      filter: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="row">
+    <div class="col">
+      <h1>The Disigner</h1>
+      <a href="" class="btn">Read More</a>
+    </div>
+    <div class="col">
+      <h1>The Coder</h1>
+      <a href="" class="btn">Read More</a>
+    </div>
+  </div>
+</body>
+
+</html>

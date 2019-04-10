@@ -1,0 +1,89 @@
+html,
+body {
+  height: 100%;
+}
+
+.position-center {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10001;
+}
+
+.position-full {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+.bg-white-50 {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.bg-black-50 {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.text-underline {
+  text-decoration: underline;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.table-fixed {
+  table-layout: fixed;
+}
+
+.btn+.btn {
+  margin-left: .5rem;
+}
+
+.user-select-none {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  display: inline-block;
+  position: relative;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar:horizontal {
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+
+input::-webkit-input-placeholder {
+  color: #f00;
+}
+
+input:-ms-input-placeholder {
+  color: #f00;
+}
+
+input::-moz-placeholder {
+  color: #f00;
+}
