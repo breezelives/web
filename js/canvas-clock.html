@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>canvas demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      background-color: #ececec;
+    }
+
+    canvas {
+      background-color: #fff;
+      margin: 2rem auto;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="canvas" width="500" height="500"></canvas>
+  <script>
+    window.onload = () => {
+      let c = document.getElementById('canvas');
+      let c2d = c.getContext('2d');
+      let flag = true;
+
+      function toDraw() {
+        let x = 250;
+        let y = 250;
+        let r = 150;
+        let d = new Date();
+        let h = d.getHours();
+        let m = d.getMinutes();
+        let s = d.getSeconds();
+
+        let hv = (30 * h - 90 + m / 2) * Math.PI / 180;
+        let mv = (6 * m - 90) * Math.PI / 180;
+        let sv = (6 * s - 90) * Math.PI / 180;
+
+        if (flag) {
+          // 表盘带分钟刻度
+          c2d.beginPath();
+          for (let i = 0; i < 60; i++) {
+            c2d.moveTo(x, y);
+            c2d.arc(x, y, r, 6 * i * Math.PI / 180, 6 * (i + 1) * Math.PI / 180, false);
+          }
+          c2d.closePath();
+          c2d.stroke();
+
+          // 表盘背景 覆盖延长的刻度线
+          c2d.fillStyle = '#fff';
+          c2d.beginPath();
+          c2d.arc(x, y, r * 0.95, 0, 360 * Math.PI / 180, false);
+          c2d.closePath();
+          c2d.fill();
+
+          // 时针刻度
+          c2d.beginPath();
+          for (let i = 0; i < 12; i++) {
+            c2d.moveTo(x, y);
+            c2d.arc(x, y, r, 30 * i * Math.PI / 180, 30 * (i + 1) * Math.PI / 180, false);
+          }
+          c2d.closePath();
+          c2d.stroke();
+
+          flag = false;
+        }
+        // c2d.clearRect(x-r, y-r, 1.8*r, 1.8*r)
+        c2d.fillStyle = '#fff';
+        c2d.beginPath();
+        c2d.arc(x, y, r * 0.91, 0, 360 * Math.PI / 180, false);
+        c2d.closePath();
+        c2d.fill();
+        // 时针
+        c2d.lineWidth = 5;
+        c2d.beginPath();
+        c2d.moveTo(x, y);
+        c2d.arc(x, y, r * 0.5, hv, hv, false);
+        c2d.closePath();
+        c2d.stroke();
+
+        // 分针
+        c2d.lineWidth = 3;
+        c2d.beginPath();
+        c2d.moveTo(x, y);
+        c2d.arc(x, y, r * 0.6, mv, mv, false);
+        c2d.closePath();
+        c2d.stroke();
+
+        // 秒针
+        c2d.lineWidth = 1;
+        c2d.beginPath();
+        c2d.moveTo(x, y);
+        c2d.arc(x, y, r * 0.9, sv, sv, false);
+        c2d.closePath();
+        c2d.stroke();
+      }
+
+      setInterval(toDraw, 1000);
+
+    }
+  </script>
+</body>
+
+</html>

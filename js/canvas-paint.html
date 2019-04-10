@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>canvas demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      background-color: #ececec;
+    }
+    canvas {
+      background-color: #fff;
+      margin: 2rem auto;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas" width="1000" height="1000"></canvas>
+  <script>
+    window.onload = () => {
+      let c = document.getElementById('canvas');
+      let c2d = c.getContext('2d');
+
+      c.onmousedown = e => {
+        c2d.moveTo(e.offsetX, e.offsetY);
+
+        c.onmousemove = e => {
+          c2d.lineTo(e.offsetX, e.offsetY);
+          c2d.stroke();
+        }
+
+        document.onmouseup = e => {
+          c.onmousemove = null;
+          document.onmouseup = null;
+        }
+      }
+    }
+  </script>
+</body>
+</html>

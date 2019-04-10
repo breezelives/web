@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>canvas ball</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      background-color: #ececec;
+    }
+
+    canvas {
+      display: inline-block;
+      background-color: #fff;
+      border: 1px solid #999;
+    }
+
+    #box {
+      position: relative;
+      display: inline-block;
+      width: 500px;
+      height: 500px;
+      background-color: #fff;
+      border: 1px solid #999;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="canvas" width="500" height="500"></canvas>
+  <div id="box"></div>
+  <script>
+    window.onload = () => {
+
+      const getRandom = (end, start = 0) => parseInt(Math.random() * (end - start) + start);
+
+      const getRandomColor = (alpha = false) => {
+        let a = '',
+          v = '';
+        if (alpha) {
+          a = 'a';
+          v = ',' + Math.random().toFixed(2);
+        }
+        return `rgb${a}(${getRandom(255)},${getRandom(255)},${getRandom(255)+v})`;
+      };
+
+      {
+        let c = document.getElementById('canvas');
+        let mw = c.width;
+        let mh = c.height;
+        let ct = c.getContext('2d');
+        let balls = [];
+
+        class Ball {
+          constructor(ct, mw, mh) {
+            let r = getRandom(5, 20);
+            [this.ct, this.r, this.mx, this.my] = [ct, r, mw - r, mh - r];
+            this.color = getRandomColor(true);
+            this.x = getRandom(this.mx, r);
+            this.y = getRandom(this.my, r);
+
+            let speedX = getRandom(6, 2);
+            this.speedX = Math.random() > 0.5 ? speedX : -speedX;
+            let speedY = getRandom(6, 2);
+            this.speedY = Math.random() > 0.5 ? speedY : -speedY;
+
+          }
+          draw() {
+            let ct = this.ct;
+            ct.fillStyle = this.color;
+            ct.beginPath();
+            ct.arc(this.x, this.y, this.r, 0, Math.PI * 2, true);
+            ct.closePath();
+            ct.fill();
+          }
+          move() {
+            this.x += this.speedX;
+            if (this.x >= this.mx || this.x <= this.r) {
+              this.speedX = -this.speedX;
+            }
+            this.y += this.speedY;
+            if (this.y >= this.my || this.y <= this.r) {
+              this.speedY = -this.speedY;
+            }
+          }
+        }
+
+        for (let i = 0; i < 500; i++) {
+          balls.push(new Ball(ct, mw, mh));
+        }
+
+        setInterval(() => {
+          ct.clearRect(0, 0, mw, mh);
+          balls.forEach(item => {
+            item.draw();
+            item.move();
+          });
+        }, 33);
+      }
+
+      {
+        // div实现小球运动
+        let box = document.getElementById('box');
+        let mw = box.clientWidth;
+        let mh = box.clientHeight;
+        let balls = [];
+
+        class Ball {
+          constructor(box, mw, mh) {
+            let ball = document.createElement('div');
+            let w = getRandom(10, 40); // 随机小球大小
+            [this.w, this.mw, this.mh] = [w, mw-w, mh-w]; // 计算小球位置范围
+            ball.style.width = w + 'px';
+            ball.style.height = w + 'px';
+            ball.style.position = 'absolute';
+            ball.style.left = getRandom(mw - w) + 'px';
+            ball.style.top = getRandom(mh - w) + 'px';
+            ball.style.backgroundColor = getRandomColor();
+            ball.style.borderRadius = '50%';
+            box.appendChild(ball);
+            this.ball = ball;
+
+            // 随机运动距离
+            let speedX = getRandom(6, 2);
+            this.speedX = Math.random() > 0.5 ? speedX : -speedX;
+            let speedY = getRandom(6, 2);
+            this.speedY = Math.random() > 0.5 ? speedY : -speedY;
+          }
+          move() {
+            let l = +this.ball.style.left.slice(0, -2);
+            l += this.speedX;
+            this.ball.style.left = l + 'px';
+            if (l >= this.mw || l <= 0) {
+              this.speedX = -this.speedX;
+            }
+            let t = +this.ball.style.top.slice(0, -2);
+            t += this.speedY;
+            this.ball.style.top = t + 'px';
+            if (t >= this.mw || t <= 0) {
+              this.speedY = -this.speedY;
+            }
+          }
+        }
+        for (let i = 0; i < 500; i++) {
+          balls.push(new Ball(box, mw, mh));
+        }
+
+        setInterval(() => {
+          balls.forEach(item => {
+            item.move();
+          });
+        }, 33);
+      }
+    }
+  </script>
+</body>
+
+</html>

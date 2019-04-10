@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>drag demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    .box {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background-color: #f90;
+      cursor: move;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box"></div>
+  <script>
+    // 在页面内拖动元素,不会拖出页面
+    function dragEl(el) {
+      let posX, posY
+
+      function mDown(e) {
+        // offsetX 鼠标x坐标在元素上的偏移量
+        posX = e.offsetX
+        posY = e.offsetY
+        document.addEventListener('mousemove', mMove, false)
+        document.addEventListener('mouseup', mUp, false)
+        e.stopPropagation()
+        e.preventDefault()
+      }
+
+      function mMove(e) {
+        //计算元素left最大值 => 页面宽度-元素宽度
+        let maxX = window.innerWidth - el.offsetWidth,
+          maxY = window.innerHeight - el.offsetHeight,
+          left = e.x - posX,
+          top = e.y - posY
+        if (left > maxX) left = maxX
+        if (top > maxY) top = maxY
+        el.style.left = left >= 0 ? left + 'px' : 0
+        el.style.top = top >= 0 ? top + 'px' : 0
+      }
+
+      function mUp(e) {
+        document.removeEventListener('mousemove', mMove, false)
+      }
+
+      el.addEventListener('mousedown', mDown, false)
+    }
+
+    // function dragEl(el) {
+    //   let posX, posY, isMoving
+
+    //   function mDown(e) {
+    //     // offsetX 鼠标x坐标在元素上的偏移量
+    //     posX = e.offsetX
+    //     posY = e.offsetY
+    //     e.stopPropagation()
+    //     e.preventDefault()
+    //     isMoving = true
+    //   }
+
+    //   function mMove(e) {
+    //     if (!isMoving) return
+    //     //计算元素left最大值 => 页面宽度-元素宽度
+    //     let maxX = window.innerWidth - el.offsetWidth,
+    //       maxY = window.innerHeight - el.offsetHeight,
+    //       left = e.x - posX,
+    //       top = e.y - posY
+    //     if (left > maxX) left = maxX
+    //     if (top > maxY) top = maxY
+    //     el.style.left = left >= 0 ? left + 'px' : 0
+    //     el.style.top = top >= 0 ? top + 'px' : 0
+    //   }
+
+    //   function mUp(e) {
+    //     isMoving = false
+    //   }
+
+    //   el.addEventListener('mousedown', mDown, false)
+    //   el.addEventListener('mousemove', mMove, false)
+    //   el.addEventListener('mouseup', mUp, false)
+    // }
+    dragEl(document.getElementsByTagName('div')[0])
+  </script>
+</body>
+
+</html>

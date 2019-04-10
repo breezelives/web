@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: blue;
+      transition: box-shadow .5s;
+    }
+    .box:hover {
+      box-shadow: 5px 5px 5px red;
+    }
+  </style>
+  <script>
+    // document.addEventListener('DOMContentLoaded', function () {
+    //   console.log('DOM Content Loaded')
+    // }, false)
+  </script>
+</head>
+
+<body>
+  <div class="box">{{ msg }}</div>
+  <!-- <a href="javascript:;">void a</a>
+  <a href="javascript:void(0);">void a</a> -->
+  <!-- <script src="node_modules/vue/dist/vue.js"></script> -->
+  <script src="js.js" async></script>
+  <script>
+    // console.log(document.readyState)
+    // document.onreadystatechange = function () {
+    //   console.log(document.readyState)
+    // }
+  </script>
+</body>
+
+</html>
