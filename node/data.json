@@ -1,0 +1,24 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "apple",
+      "quantity": 0
+    },
+    {
+      "id": 2,
+      "name": "orange",
+      "quantity": 12
+    },
+    {
+      "id": 3,
+      "name": "pear",
+      "quantity": 13
+    },
+    {
+      "id": 4,
+      "name": "peach",
+      "quantity": 14
+    }
+  ]
+}
