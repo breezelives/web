@@ -52,24 +52,28 @@ export default {
     this.drag();
   },
   methods: {
-    onSuccess() {},
+    onSuccess() {
+      this.drag();
+    },
     // 使用sort值排序
     sort() {
       this.fileList = this.fileList.sort((a, b) => a.sort - b.sort);
     },
     drag() {
       let listItems = document.querySelectorAll(".file-list ul li");
-      let start;
       listItems.forEach((item, i) => {
         item.setAttribute("draggable", true);
         // dom中保存图片uid
         item.setAttribute("data-uid", this.fileList[i].uid);
         item.addEventListener("dragstart", e => {
-          // 保存拖动的元素
-          start = this.fileList.find(v => v.uid == e.target.dataset.uid);
+          // 传递图片的uid
+          e.dataTransfer.setData("Text", e.target.dataset.uid);
         });
         item.addEventListener("dragover", e => e.preventDefault());
         item.addEventListener("drop", e => {
+          let start = this.fileList.find(
+            v => v.uid == e.dataTransfer.getData("Text")
+          );
           // 查找目标元素
           let end = this.fileList.find(
             v => v.uid == e.target.parentElement.dataset.uid
@@ -78,7 +82,7 @@ export default {
           let temp = start.sort;
           start.sort = end.sort;
           end.sort = temp;
-          this.sort();
+          this.$nextTick().then(() => this.sort());
         });
       });
     },
