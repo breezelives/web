@@ -60,8 +60,7 @@ export default {
       this.fileList = this.fileList.sort((a, b) => a.sort - b.sort);
     },
     drag() {
-      let listItems = document.querySelectorAll(".file-list ul li");
-      listItems.forEach((item, i) => {
+      document.querySelectorAll(".file-list ul li").forEach((item, i) => {
         item.setAttribute("draggable", true);
         // dom中保存图片uid
         item.setAttribute("data-uid", this.fileList[i].uid);
