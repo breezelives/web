@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>绚丽的小球</title>
+    <style>
+      body {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+      #canvas {
+        display: block;
+        margin: 50px auto;
+        background-color: black;
+        border-radius: 10px;
+        box-shadow: 0 0 10px 5px rgba(122, 122, 122, 0.8) inset;
+      }
+    </style>
+  </head>
+
+  <body>
+    <canvas id="canvas"></canvas>
+    <script>
+      function random(min = 0, max = 10) {
+        if (arguments.length == 1) {
+          max = min;
+          min = 0;
+        }
+        return parseInt(Math.random() * (max - min + 1)) + min;
+      }
+
+      const canvas = document.getElementById("canvas");
+      canvas.width = 1000;
+      canvas.height = 600;
+      const ctx = canvas.getContext("2d");
+
+      class Ball {
+        constructor(x, y, color, r = 40) {
+          this.x = x;
+          this.y = y;
+          this.color = color;
+          this.r = r;
+        }
+
+        draw() {
+          ctx.save();
+          ctx.beginPath();
+          ctx.fillStyle = this.color;
+          ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.restore();
+        }
+      }
+
+      class MoveBall extends Ball {
+        constructor(x, y, color, r) {
+          super(x, y, color, r);
+
+          // 初始化时计算出移动变化量
+          let v = this.r / 8;
+          this.dx = random(-v, v);
+          this.dy = random(-v, v);
+          this.dr = random(-v, -1);
+        }
+
+        update() {
+          this.x += this.dx;
+          this.y += this.dy;
+          this.r += this.dr;
+          if (this.r < 0) {
+            this.r = 0;
+          }
+          // 更新数据后渲染小球
+          this.draw();
+        }
+      }
+
+      const colors = [
+        "red",
+        "green",
+        "blue",
+        "orange",
+        "purple",
+        "pink",
+        "yellow"
+      ];
+      //   记录要渲染的小球
+      let balls = [];
+      let timerStart;
+      let timerEnd;
+      //   鼠标移动时实列化小球并保存
+      canvas.addEventListener("mousemove", e => {
+        balls.push(
+          new MoveBall(e.offsetX, e.offsetY, colors[random(colors.length - 1)])
+        );
+        // 限制最多渲染数量
+        if (balls.length > 1000) {
+          balls.splice(0, 200);
+        }
+      });
+
+      canvas.addEventListener("mouseenter", () => {
+        clearTimeout(timerEnd);
+        clearInterval(timerStart);
+        // 定时器中渲染小球
+        timerStart = setInterval(() => {
+          // 渲染之前先清空画布
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          balls.forEach(v => v.update());
+        }, 50);
+      });
+      // 鼠标移出3秒后清理开始定时器
+      canvas.addEventListener("mouseout", () => {
+        timerEnd = setTimeout(() => {
+          clearInterval(timerStart);
+        }, 3000);
+      });
+    </script>
+  </body>
+</html>
