@@ -2,6 +2,7 @@
 <html>
 
 <head>
+  <base href="http://www.abc.com/index.html">
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Page Title</title>
@@ -14,6 +15,7 @@
       background-color: blue;
       transition: box-shadow .5s;
     }
+
     .box:hover {
       box-shadow: 5px 5px 5px red;
     }
@@ -29,6 +31,9 @@
   <div class="box">{{ msg }}</div>
   <!-- <a href="javascript:;">void a</a>
   <a href="javascript:void(0);">void a</a> -->
+  <div id="d">
+    This is a <span>span</span> text
+  </div>
   <!-- <script src="node_modules/vue/dist/vue.js"></script> -->
   <script src="js.js" async></script>
   <script>
@@ -36,6 +41,9 @@
     // document.onreadystatechange = function () {
     //   console.log(document.readyState)
     // }
+
+    let t = document.getElementById('d').textContent;
+    t = '<p>a parography</p>'
   </script>
 </body>
 

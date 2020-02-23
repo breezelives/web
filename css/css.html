@@ -119,19 +119,19 @@
 
   <div class="box">border image</div>
   <script>
-    Math.constructor.prototype.getRandom = function (end, start = 0) {
+    function getRandom(end, start = 0) {
       return parseInt(Math.random() * (end - start) + start);
     }
 
     function getRandomColor(alpha = 0) {
       if (alpha) {
-        return 'rgba(' + Math.getRandom(255) + ',' + Math.getRandom(255) + ',' + Math.getRandom(255) + ',' + Math.random()
+        return 'rgba(' + getRandom(255) + ',' + getRandom(255) + ',' + getRandom(255) + ',' + Math.random()
           .toFixed(2) + ')'
       }
-      return 'rgb(' + Math.getRandom(255) + ',' + Math.getRandom(255) + ',' + Math.getRandom(255) + ')'
+      return 'rgb(' + getRandom(255) + ',' + getRandom(255) + ',' + getRandom(255) + ')'
     }
     setInterval(() => {
-      let color = getRandomColor()
+      let color = getRandomColor(1)
       document.documentElement.style.setProperty('--main-color', color);
     }, 2000);
 

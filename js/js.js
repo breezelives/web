@@ -153,6 +153,11 @@ this
 //   return Object.prototype.toString.call(target) === '[object Array]'
 // }
 
+// 判断空数组(有自定义属性返回false)
+function isEmpty(x) {
+  return Object.keys(x).length === 0
+}
+
 // 判断对象
 // function isObject(target) {
 //   return target.toString() === '[object Object]'
@@ -193,26 +198,16 @@ this
 // }
 
 // 判断数据类型
-// function trueType(target) {
-//   return Object.prototype.toString.call(target).slice(8, -1).toLowerCase()
-// }
-/*
-function trueType(target) {
-  if (target === null) return 'null'
-  let t = typeof target
-  let temp = {
-    '[object Array]': 'array',
-    '[object Object]': 'object',
-    '[object Number]': 'number - object',
-    '[object Boolean]': 'boolean - object',
-    '[object String]': 'string - object'
+let dataType = function (data) {
+  // return Object.prototype.toString.call(data).slice(8, -1).toLowerCase()
+  return Object.prototype.toString.call(data).match(/\[object (\w*)\]/)[1].toLowerCase();
+};
+
+['Null', 'Undefined', 'Object', 'Array', 'String', 'Number', 'Boolean', 'Function', 'RegExp'].forEach(v => {
+  dataType['is' + v] = function (data) {
+    return v.toLowerCase() === dataType(data)
   }
-  if (t === 'object') {
-    return temp[Object.prototype.toString.call(target)]
-  }
-  return t
-}
-*/
+})
 // 数据类型
 // 原始类型 基本类型:
 // Number String Boolean undefined null
@@ -1039,15 +1034,15 @@ print()() */
 // 克隆 拷贝
 // 浅拷贝 原始值拷贝, 引用值共享
 // 深拷贝 引用值迭代拷贝
-/* function clone(object) {
+function clone(object) {
   let _o = {}
   for (const key in object) {
     if (object.hasOwnProperty(key)) {
-      _o[key] = object[key];
+      Object.defineProperty(_o, key, Object.getOwnPropertyDescriptor(object, key))
     }
   }
   return _o
-} */
+}
 
 /* function deepClone(obj) {
   if (isObject(obj)) {
@@ -2119,33 +2114,29 @@ let objIt = obj[Symbol.iterator](); //无效 */
 // loadImageAsync('a.jpg')
 
 
-function Ajax(url) {
-  return new Promise((resolve, reject) => {
-    let xhr = new XMLHttpRequest()
-    xhr.open('GET', url)
-    xhr.responseType = 'json'
-    xhr.setRequestHeader('Accept', 'application/json')
-    xhr.onreadystatechange = function() {
-      if (this.readyState !== 4) return;
-      if (this.status === 200) {
-        resolve(this.response)
-      } else {
-        reject(new Error(this.statusText))
-      }
-    }
-    xhr.send()
-  })
-}
+// function Ajax(url) {
+//   return new Promise((resolve, reject) => {
+//     let xhr = new XMLHttpRequest()
+//     xhr.open('GET', url)
+//     xhr.responseType = 'json'
+//     xhr.setRequestHeader('Accept', 'application/json')
+//     xhr.onreadystatechange = function () {
+//       if (this.readyState !== 4) return;
+//       if (this.status === 200) {
+//         resolve(this.response)
+//       } else {
+//         reject(new Error(this.statusText))
+//       }
+//     }
+//     xhr.send()
+//   })
+// }
 
-Ajax('a.json').then(data => {
-  console.log(data)
-}, err => {
-  console.error(err)
-})
-
-
-
-
+// Ajax('a.json').then(data => {
+//   console.log(data)
+// }, err => {
+//   console.error(err)
+// })
 
 // async
 
@@ -3629,3 +3620,123 @@ console.log(hashMap); */
 // Adelson-Velskii-Landi树（AVL树）自平衡二叉搜索树
 // 红黑树
 
+// 判断奇数
+function isOdd(n) {
+  return Math.abs(n % 2) === 1
+}
+
+// 查找数组中字符串最长的元素
+function findLongest(arr) {
+  return arr.reduce((prev, curr) => {
+    return prev.length > curr.length ? prev : curr
+  }, '')
+}
+
+Number.prototype.iterate = function () {
+  // let result = []
+  // for (let i = 0; i < this; i++) {
+  //   result.push(i)
+  // }
+  // return result;
+
+  // return Array(this.valueOf()).fill(0).map((v, i) => i);
+  return Array.apply(null, Array(this.valueOf())).map((v, i) => i);
+}
+
+function getRandom(min, max) {
+  return Math.random() * (max - min) + min
+}
+
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
+function random_str(length) {
+  let ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  ALPHABET += 'abcdefghijklmnopqrstuvwxyz';
+  ALPHABET += '0123456789-_';
+  let str = '',
+    len = ALPHABET.length;
+  for (let i = 0; i < length; ++i) {
+    let rand = Math.floor(Math.random() * len);
+    str += ALPHABET.charAt(rand);
+  }
+  return str;
+}
+
+// 获取随机字母
+function getRandomStr(length) {
+  let str = '';
+  for (let i = 0; i < length; i++) {
+    str += getRandomInt(10, 36).toString(36);
+  }
+  return str;
+}
+
+// 计算本年度剩余天数
+function leftDays() {
+  let today = new Date();
+  let endDay = new Date(today.getFullYear() + 1, 0);
+  return Math.round((endDay - today) / 1000 / 60 / 60 / 24);
+}
+
+JSON.stringify({
+  firstName: '三',
+  lastName: '李',
+  get fullName() {
+    return this.lastName + this.firstName;
+  },
+  toJSON() {
+    return {
+      name: this.lastName + this.firstName
+    }
+  }
+})
+
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+function _new(constructor, ...params) {
+  let context = Object.create(constructor.prototype);
+  let result = constructor.apply(context, params)
+  return (result && typeof result === 'object') ? result : context;
+}
+let actor = _new(Person, '张三', 28)
+
+function getAllProperties(obj) {
+  let props = [];
+  while (obj) {
+    props.push(...Object.getOwnPropertyNames(obj));
+    obj = Object.getPrototypeOf(obj);
+  }
+  return [...new Set(props)];
+}
+
+function copyObject(orig) {
+  return Object.create(
+    Object.getPrototypeOf(orig),
+    Object.getOwnPropertyDescriptors(orig)
+  );
+}
+
+function debounce(fn, delay) {
+  let timer;
+  return function () {
+    clearTimeout(timer)
+    timer = setTimeout(() => {
+      fn.apply(this, arguments)
+    }, delay);
+  }
+}
+
+function sleep(ms) {
+  let t = Date.now();
+  while (Date.now() - t < ms) {}
+}
+
+// 页面滚动到浏览器顶部
+function scrollToTop() {
+  window.document.scrollingElement.scrollTop = 0
+}
